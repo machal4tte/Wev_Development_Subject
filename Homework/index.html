@@ -1,0 +1,83 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+</head>
+<body>
+    
+    <div id="ColorChanger">
+        <h1 id="Counter">0</h1>
+    </div>
+
+    <button id="PlusBtn" onclick="Plus()">Plus</button>
+    <button id="MinusBtn" onclick="Minus()">Minus</button>
+
+    <h1>Guess the Message The message is "Something Sharp"</h1>
+    <div id="MirrorMessage" ></div>
+    <input id="Message" onkeyup="Mirror()">
+    <div id="Hidden" style="display: none;"> Your are right the message is "Knife" </div>
+
+<script>
+    
+    const PlusBtn = document.getElementById('PlusBtn')
+    const MinusBtn = document.getElementById('MinusBtn')
+    let number = 0
+    
+    PlusBtn.addEventListener('click', Plus())
+    MinusBtn.addEventListener('click', Minus())
+    // Message.addEventListener('keyup', Message())
+    
+    function Plus(){
+        console.log("Plus Plus")
+        const Counter = document.getElementById('Counter')
+        number += 1
+        Counter.textContent = number
+
+        //chaging color of the backgound
+        const Colorpanel = document.getElementById('ColorChanger')
+        if (number == 10){
+            Colorpanel.style.background = 'Orange'
+        }else{
+            Colorpanel.style.background = 'none'
+        }
+    }
+
+
+    function Minus(){
+        console.log("Minus Minus")
+        const Counter = document.getElementById('Counter')
+        number -= 1
+        Counter.textContent = number
+
+        //chaging color of the backgound
+        const Colorpanel = document.getElementById('ColorChanger')
+        if (number == 10){
+            Colorpanel.style.background = 'Orange'
+        }else{
+            Colorpanel.style.background = 'none'
+        }
+    }
+
+    
+    function Mirror(){
+        console.log("Mirror Mirror")
+        let Message = document.getElementById('Message')
+        let MirrorMessage = document.getElementById('MirrorMessage')
+        const Hidden = document.getElementById('Hidden')
+        
+        let Text = Message.value
+        MirrorMessage.textContent = Text
+        
+        if (Text == "Knife"){
+            Hidden.style.display = 'flex'
+            console.log("Correct")
+        } else {
+            Hidden.style.display = 'none'
+        }
+    }
+    
+    
+    
+    </script>
+</body>
