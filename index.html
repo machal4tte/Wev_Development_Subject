@@ -1,0 +1,100 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS DOM</title>
+</head>
+<body>
+    
+    <div>
+        <h1>สิ่งที่สนใจ</h1>
+
+        <div id="NewContent">
+
+        </div>
+    </div>
+
+    <button onclick="submitInterest()">Submit ur interest</button>
+
+    <div>
+        <input type="checkbox" name="interest" value="Book">
+        <input type="checkbox" name="interest" value="Games">
+        <input type="checkbox" name="interest" value="Music">
+    </div>
+
+    <input id="firstname" name="first" value="ทดสอบ">
+
+    <div>
+        <button id="submit_btn" onclick="submitData()">Submit</button>
+    </div>
+
+    <div>
+        <button onclick="buttonClick()">Click</button>
+    </div>
+
+    <div id="helloMyName" > Hi
+        <p style="display: none;">Myname</p>
+    </div>
+
+    <div id="mycontent"></div>
+
+    <a id="ThisLink" href="https://www.chess.com" target="_blank">Chess</a>
+
+<script>
+    let firstname = document.getElementById('firstname');
+    
+    console.log(firstname.value)
+    let hobby = document.querySelectorAll('input[name=interest]') 
+    
+    
+    const btn = document.getElementById('submit_btn')
+    btn.addEventListener('click', submitData())
+    
+    btn.setAttribute('disabled', 'true')
+    
+    
+    function buttonClick(){
+        console.log("Click Click")
+        document.getElementById('mycontent').innerHTML=myhtml
+        setCSS.style.backgroundColor = 'blue';
+        btn.setAttribute('disabled', 'false')
+    }
+    
+    
+    
+    function submitData(){
+        console.log("Submit Submit")
+    }
+    
+    function submitInterest(){
+        let Interest = document.querySelectorAll('input[name=interset]')
+
+        for (let i=0; i < Interest.length; i++){
+            console.log(Interest[i].value)
+        }
+    }
+    
+    let hider = document.getElementById('helloMyName')
+    console.log(hider)
+    console.log(hider.textContent)
+    console.log(hider.innerText)
+    console.log(hider.innerHTML)
+    
+    let myhtml = '<ul>';
+        myhtml += '<li>' + firstname.value + '</li>';
+        myhtml += '</ul>';
+        
+        // console.log(document.getElementById('mycontent').innerHTML=myhtml)
+        let setCSS = document.getElementById('helloMyName');
+        let impact = document.getElementById('helloMyName');
+        impact.style.fontFamily = 'Impact';
+        
+        
+        let thisLink = document.getElementById('ThisLink')
+        console.log(thisLink.getAttribute('href'))
+        thisLink.setAttribute('href', 'https://shopee.co.th')
+        
+    </script>
+
+</body>
+</html>
